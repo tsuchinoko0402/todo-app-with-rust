@@ -5,3 +5,6 @@ dev:
 
 test:
 	cargo test
+
+test-s:
+	cargo test --no-default-features
