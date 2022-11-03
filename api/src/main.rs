@@ -85,7 +85,7 @@ mod test {
 
     async fn res_to_todo(res: Response) -> Todo {
         let bytes = hyper::body::to_bytes(res.into_body()).await.unwrap();
-        let body: String = String::from_utf8((bytes.to_vec())).unwrap();
+        let body: String = String::from_utf8(bytes.to_vec()).unwrap();
         let todo: Todo = serde_json::from_str(&body)
             .expect(&format!("cannot convert Todo instance. body: {}", body));
         todo
